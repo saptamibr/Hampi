@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "855484615696",
+    "firebase_url": "https://hampi-d02e9.firebaseio.com",
+    "project_id": "hampi-d02e9",
+    "storage_bucket": "hampi-d02e9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855484615696:android:7df80daf82a7d5b4a2ce95",
+        "android_client_info": {
+          "package_name": "com.example.hampi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "855484615696-8ohc4e3hu1qnpfck5p3hlphn4qo364fa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDv92Qbz0w_M4rt9Dnswu6zhMePMlXJyBw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "855484615696-8ohc4e3hu1qnpfck5p3hlphn4qo364fa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

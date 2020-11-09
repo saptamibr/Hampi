@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Just Travel</string>
+
+    <string name="p1">name 1</string>
+    <string name="p2">name 2</string>
+    <string name="p3">name 3</string>
+    <string name="p4">name 4</string>
+    <string name="p5">name 5</string>
+    <string name="p6">name 6</string>
+
+    <string name="n1">Sringeri Horanadu</string>
+    <string name="n2">Hampi</string>
+    <string name="n3">Beluru Halebeedu</string>
+    <string name="n4">Mysore</string>
+    <string name="n5">Chickamagaluru</string>
+    <string name="n6">Chitradurga</string>
+
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+</resources>

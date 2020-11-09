@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical"
+        android:padding="40dp"
+        tools:context=".SignUp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:fontFamily="sans-serif-medium"
+                android:id="@+id/login_bt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:background="@color/accent"
+                android:onClick="goToLoginMethod"
+                android:text="Login"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:fontFamily="sans-serif-medium"
+                android:id="@+id/tvb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_toLeftOf="@id/login_bt"
+                android:gravity="center_vertical"
+                android:text="Already a user?"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+
+        <EditText
+            style="@style/textsignup"
+            android:id="@+id/fullname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="20"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:hint="Full Name"
+            android:inputType="text"
+            android:padding="25dp"
+             />
+
+        <EditText
+            android:id="@+id/mailid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="20"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:hint="Enter Email ID"
+            android:inputType="textEmailAddress"
+            android:padding="25dp"
+            style="@style/textsignup"
+             />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            app:passwordToggleEnabled="true"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/psswd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="20"
+                android:hint="Enter Password"
+                android:inputType="textPassword"
+                android:padding="25dp"
+                style="@style/textsignup" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            app:passwordToggleEnabled="true"
+            android:layout_height="wrap_content">
+
+
+        <EditText
+            android:id="@+id/conpsswd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="20"
+            android:hint="Confirm your Password"
+            android:inputType="textPassword"
+            android:padding="25dp"
+            style="@style/textsignup"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <EditText
+            android:focusableInTouchMode="true"
+            android:id="@+id/et_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="20"
+            android:hint="Your Date Of Birth"
+            android:inputType="date"
+            android:padding="25dp"
+            style="@style/textsignup" />
+
+
+        <EditText
+            android:id="@+id/origin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="20"
+            android:hint="Your from?"
+            android:inputType="text"
+            android:padding="25dp"
+            style="@style/textsignup" />
+
+        <Button
+            android:id="@+id/signup_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25dp"
+            android:background="@color/accent"
+            android:text="Signup"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_marginTop="20dp"
+            style="?android:attr/progressBarStyle"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+</ScrollView>
