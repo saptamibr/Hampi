@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.renderscript.Script;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -16,14 +17,21 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.lang.reflect.MalformedParameterizedTypeException;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignUp extends AppCompatActivity {
 
+    public static final String TAG = "TAG";
     EditText etDate;
     DatePickerDialog.OnDateSetListener setListener;
 
@@ -32,7 +40,8 @@ public class SignUp extends AppCompatActivity {
     Button msignupbtn;
     FirebaseAuth firebaseAuth;
     ProgressBar progressBar;
-    String name;
+    String name,userID;
+    FirebaseFirestore fStore;
 
 
     @Override
@@ -76,6 +85,7 @@ public class SignUp extends AppCompatActivity {
         progressBar=findViewById(R.id.progressBar);
 
         firebaseAuth=FirebaseAuth.getInstance();
+        fStore=FirebaseFirestore.getInstance();
         name=mfullname.getText().toString().trim();
 
         //if user already logged in
@@ -88,9 +98,13 @@ public class SignUp extends AppCompatActivity {
         msignupbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email=mmailid.getText().toString().trim();
+                final String email=mmailid.getText().toString().trim();
                 String passwd=mpsswd.getText().toString().trim();
                 String conpasswd=mconpsswd.getText().toString().trim();
+                final String fullname= mfullname.getText().toString().trim();
+                final String dob= mdob.getText().toString().trim();
+                final String origin= morigin.getText().toString().trim();
+
 
                 if (TextUtils.isEmpty(email)){
                     mmailid.setError("Email is required");
@@ -118,11 +132,26 @@ public class SignUp extends AppCompatActivity {
 
                 //register the user in firebase
 
+
                 firebaseAuth.createUserWithEmailAndPassword(email,passwd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             Toast.makeText(SignUp.this, "Successfully Registered", Toast.LENGTH_SHORT).show();
+                            //cloud firebase
+                            userID =firebaseAuth.getCurrentUser().getUid();
+                            DocumentReference documentReference=fStore.collection("users").document(userID);
+                            Map<String,Object> user=new HashMap<>();
+                            user.put("fullName",fullname);
+                            user.put("email",email);
+                            user.put("DOB",dob);
+                            user.put("origin",origin);
+                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.d(TAG,"user profile is created for "+userID);
+                                }
+                            });
                             Intent intent = new Intent(SignUp.this,MainHome.class);
                             startActivity(intent);
                         }else{
